@@ -51,6 +51,9 @@ from ..core.properties import (
     Instance,
     Int,
     List,
+    Null,
+    Nullable,
+    NullStringSpec,
     NumberSpec,
     Override,
     PropertyUnitsSpec,
@@ -166,7 +169,7 @@ class LegendItem(Model):
             # Allow convenience of setting label as a string
             self.label = value(self.label)
 
-    label = StringSpec(default=None, help="""
+    label = NullStringSpec(help="""
     A label for this legend. Can be a string, or a column of a
     ColumnDataSource. If ``label`` is a field, then it must
     be in the renderers' data_source.
@@ -177,7 +180,7 @@ class LegendItem(Model):
     then all data_sources of renderers must be the same.
     """)
 
-    index = Int(default=None, help="""
+    index = Nullable(Int, help="""
     The column data index to use for drawing the representative items.
 
     If None (the default), then Bokeh will automatically choose an index to
@@ -372,7 +375,7 @@ class ColorBar(Annotation):
     The alpha with which to render the color scale.
     """)
 
-    title = String(default=None, help="""
+    title = Nullable(String, help="""
     The title text to render.
     """)
 
@@ -502,7 +505,7 @@ class Arrow(Annotation):
     space" units by default.
     """)
 
-    start = Instance('.models.arrow_heads.ArrowHead', default=None, help="""
+    start = Nullable(Instance('.models.arrow_heads.ArrowHead'), help="""
     Instance of ``ArrowHead``.
     """)
 
@@ -519,7 +522,7 @@ class Arrow(Annotation):
     space" units by default.
     """)
 
-    end = Instance('.models.arrow_heads.ArrowHead', default=_DEFAULT_ARROW, help="""
+    end = Nullable(Instance('.models.arrow_heads.ArrowHead'), default=_DEFAULT_ARROW, help="""
     Instance of ``ArrowHead``.
     """)
 
@@ -538,7 +541,7 @@ class BoxAnnotation(Annotation):
 
     '''
 
-    left = Either(Auto, NumberSpec(), default=None, help="""
+    left = Either(Null, Auto, NumberSpec(), help="""
     The x-coordinates of the left edge of the box annotation.
 
     Datetime values are also accepted, but note that they are immediately
@@ -550,7 +553,7 @@ class BoxAnnotation(Annotation):
     by default.
     """)
 
-    right = Either(Auto, NumberSpec(), default=None, help="""
+    right = Either(Null, Auto, NumberSpec(), help="""
     The x-coordinates of the right edge of the box annotation.
 
     Datetime values are also accepted, but note that they are immediately
@@ -562,7 +565,7 @@ class BoxAnnotation(Annotation):
     by default.
     """)
 
-    bottom = Either(Auto, NumberSpec(), default=None, help="""
+    bottom = Either(Null, Auto, NumberSpec(), help="""
     The y-coordinates of the bottom edge of the box annotation.
 
     Datetime values are also accepted, but note that they are immediately
@@ -574,7 +577,7 @@ class BoxAnnotation(Annotation):
     by default.
     """)
 
-    top = Either(Auto, NumberSpec(), default=None, help="""
+    top = Either(Null, Auto, NumberSpec(), help="""
     The y-coordinates of the top edge of the box annotation.
 
     Datetime values are also accepted, but note that they are immediately
@@ -895,11 +898,11 @@ class Slope(Annotation):
 
     """
 
-    gradient = Float(help="""
+    gradient = Nullable(Float, help="""
     The gradient of the line, in data units
     """)
 
-    y_intercept = Float(help="""
+    y_intercept = Nullable(Float, help="""
     The y intercept of the line, in data units
     """)
 
@@ -914,7 +917,7 @@ class Span(Annotation):
 
     """
 
-    location = Float(help="""
+    location = Nullable(Float, help="""
     The location of the span, along ``dimension``.
 
     Datetime values are also accepted, but note that they are immediately
@@ -1065,7 +1068,7 @@ class Whisker(Annotation):
     The coordinates of the lower end of the whiskers.
     """)
 
-    lower_head = Instance('.models.arrow_heads.ArrowHead', default=_DEFAULT_TEE, help="""
+    lower_head = Nullable(Instance('.models.arrow_heads.ArrowHead'), default=_DEFAULT_TEE, help="""
     Instance of ``ArrowHead``.
     """)
 
@@ -1073,7 +1076,7 @@ class Whisker(Annotation):
     The coordinates of the upper end of the whiskers.
     """)
 
-    upper_head = Instance('.models.arrow_heads.ArrowHead', default=_DEFAULT_TEE, help="""
+    upper_head = Nullable(Instance('.models.arrow_heads.ArrowHead'), default=_DEFAULT_TEE, help="""
     Instance of ``ArrowHead``.
     """)
 
