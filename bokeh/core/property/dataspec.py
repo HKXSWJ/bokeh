@@ -186,11 +186,6 @@ class DataSpec(Either):
         return [ DataSpecPropertyDescriptor(base_name, self) ]
 
     def to_serializable(self, obj, name, val):
-        # Check for None value; this means "the whole thing is
-        # unset," not "the value is None."
-        if val is None:
-            return
-
         # Check for spec type value
         try:
             self._type.validate(val, False)
@@ -469,7 +464,7 @@ class _FixedUnitsDistanceSpec(UnitsSpec):
 
     def prepare_value(self, cls, name, value):
         try:
-            if value is not None and value < 0:
+            if value < 0:
                 raise ValueError("Distances must be positive or None!")
         except TypeError:
             pass
