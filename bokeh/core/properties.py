@@ -288,6 +288,7 @@ from .property.dataspec import field; field
 from .property.dataspec import FontSizeSpec; FontSizeSpec
 from .property.dataspec import HatchPatternSpec; HatchPatternSpec
 from .property.dataspec import MarkerSpec; MarkerSpec
+from .property.dataspec import NullDistanceSpec; NullDistanceSpec
 from .property.dataspec import NullStringSpec; NullStringSpec
 from .property.dataspec import NumberSpec; NumberSpec
 from .property.dataspec import PropertyUnitsSpec; PropertyUnitsSpec

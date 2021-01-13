@@ -296,8 +296,8 @@ export class ImageURL extends XYGlyph {
       anchor:         [ Anchor, "top_left" ],
       global_alpha:   [ Alpha, 1.0 ],
       angle:          [ p.AngleSpec, 0 ],
-      w:              [ p.DistanceSpec, null ], // TODO: nullable
-      h:              [ p.DistanceSpec, null ], // TODO: nullable
+      w:              [ p.NullDistanceSpec, null ],
+      h:              [ p.NullDistanceSpec, null ],
       dilate:         [ Boolean, false ],
       retry_attempts: [ Int, 0 ],
       retry_timeout:  [ Int, 0 ],
