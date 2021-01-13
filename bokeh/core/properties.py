@@ -223,6 +223,9 @@ __all__ = (
     'MarkerType',
     'MinMaxBounds',
     'NonNegativeInt',
+    'Null',
+    'NullStringSpec',
+    'Nullable',
     'NumberSpec',
     'Override',
     'PandasDataFrame',
@@ -284,6 +287,7 @@ from .property.dataspec import field; field
 from .property.dataspec import FontSizeSpec; FontSizeSpec
 from .property.dataspec import HatchPatternSpec; HatchPatternSpec
 from .property.dataspec import MarkerSpec; MarkerSpec
+from .property.dataspec import NullStringSpec; NullStringSpec
 from .property.dataspec import NumberSpec; NumberSpec
 from .property.dataspec import PropertyUnitsSpec; PropertyUnitsSpec
 from .property.dataspec import ScreenDistanceSpec; ScreenDistanceSpec
@@ -296,6 +300,7 @@ from .property.datetime import Datetime; Datetime
 from .property.datetime import TimeDelta; TimeDelta
 
 from .property.either import Either; Either
+from .property.either import Nullable; Nullable
 
 from .property.enum import Enum; Enum
 
@@ -322,6 +327,7 @@ from .property.primitive import Bool; Bool
 from .property.primitive import Complex; Complex
 from .property.primitive import Int; Int
 from .property.primitive import Float; Float
+from .property.primitive import Null; Null
 from .property.primitive import String; String
 
 from .property.string import Base64String; Base64String
