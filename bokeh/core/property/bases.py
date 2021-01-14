@@ -321,6 +321,7 @@ class Property(PropertyDescriptorFactory):
         return value
 
     def prepare_value(self, obj_or_cls, name, value):
+        error = None
         try:
             if validation_on():
                 self.validate(value)
@@ -330,9 +331,12 @@ class Property(PropertyDescriptorFactory):
                     value = converter(value)
                     break
             else:
-                raise e
-        else:
+                error = e
+
+        if error is None:
             value = self.transform(value)
+        else:
+            raise ValueError(f"failed to validate {obj_or_cls.__name__}.{name}: {str(error)}")
 
         if isinstance(obj_or_cls, HasProps):
             obj = obj_or_cls
