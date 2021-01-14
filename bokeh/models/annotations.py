@@ -226,7 +226,7 @@ class Legend(Annotation):
     when they are drawn.
     """)
 
-    title = String(help="""
+    title = Nullable(String, help="""
     The title text to render.
     """)
 
@@ -492,11 +492,11 @@ class Arrow(Annotation):
 
     '''
 
-    x_start = NumberSpec(help="""
+    x_start = NumberSpec(default=field("x_start"), help="""
     The x-coordinates to locate the start of the arrows.
     """)
 
-    y_start = NumberSpec(help="""
+    y_start = NumberSpec(default=field("y_start"), help="""
     The y-coordinates to locate the start of the arrows.
     """)
 
@@ -509,11 +509,11 @@ class Arrow(Annotation):
     Instance of ``ArrowHead``.
     """)
 
-    x_end = NumberSpec(help="""
+    x_end = NumberSpec(default=field("x_end"), help="""
     The x-coordinates to locate the end of the arrows.
     """)
 
-    y_end = NumberSpec(help="""
+    y_end = NumberSpec(default=field("y_end"), help="""
     The y-coordinates to locate the end of the arrows.
     """)
 
@@ -709,7 +709,7 @@ class Label(TextAnnotation):
     by default.
     """)
 
-    text = String(help="""
+    text = String(default="", help="""
     The text value to render.
     """)
 
@@ -782,7 +782,7 @@ class LabelSet(TextAnnotation):
 
     '''
 
-    x = NumberSpec(help="""
+    x = NumberSpec(default=field("x"), help="""
     The x-coordinates to locate the text anchors.
     """)
 
@@ -791,7 +791,7 @@ class LabelSet(TextAnnotation):
     by default.
     """)
 
-    y = NumberSpec(help="""
+    y = NumberSpec(default=field("y"), help="""
     The y-coordinates to locate the text anchors.
     """)
 
@@ -800,7 +800,7 @@ class LabelSet(TextAnnotation):
     by default.
     """)
 
-    text = StringSpec("text", help="""
+    text = StringSpec(default=field("text"), help="""
     The text values to render.
     """)
 
@@ -958,7 +958,7 @@ class Title(TextAnnotation):
 
     '''
 
-    text = String(help="""
+    text = String(default="", help="""
     The text value to render.
     """)
 

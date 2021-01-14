@@ -151,7 +151,7 @@ export class Title extends TextAnnotation {
     ])
 
     this.define<Title.Props>(({Number, String}) => ({
-      text:             [ String ],
+      text:             [ String, "" ],
       text_font:        [ p.Font, "helvetica" ],
       text_font_size:   [ p.StringSpec, "13px" ],
       text_font_style:  [ FontStyle, "bold" ],
